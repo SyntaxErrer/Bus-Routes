@@ -10,8 +10,8 @@
 
 using namespace std;
 
-static const int COST_RIDE     = 1;  // проезд между соседними остановками
-static const int COST_TRANSFER = 3;  // пересадка между маршрутами
+static const int COST_RIDE     = 1;
+static const int COST_TRANSFER = 3;
 static const int INF = numeric_limits<int>::max() / 4;
 
 struct PQItem {
@@ -40,7 +40,6 @@ public:
 };
 
 //  РЕАЛИЗАЦИЯ B — приоритетная очередь на односвязном списке
-
 class PriorityQueueLinkedList {
     struct Node {
         PQItem value;
@@ -140,7 +139,6 @@ BuiltGraph buildGraph(int n, const vector<vector<int>>& routes) {
 }
 
 //  Универсальная реализация алгоритма Дейкстры, параметризованная
-
 template <typename PQ>
 int dijkstra(const Graph& g, int source, int target,
              vector<int>* parentOut = nullptr)
@@ -222,7 +220,6 @@ SolveResult solveBusProblem(int n,
             res.stopsPath.push_back(stop);
             res.routeOfStep.push_back(vertexRoute[v]);
         } else {
-            // пересадка на той же остановке: обновим маршрут
             res.routeOfStep.back() = vertexRoute[v];
         }
     }
